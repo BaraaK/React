@@ -48,9 +48,33 @@
 .card {
   margin: 2rem;
   padding: 1rem;
+  width:30rem
 }
 .alert {
   margin: 1rem;
   padding: 1rem;
+  width:30rem
+}
+.input-group {
+  width:30rem
+}
+.card-header{
+  display: flex;
+  flex-direction: row;
+
+}
+.head {
+  width: 80%;
+}
+
+.delete {
+  float: left;
+  left: 90%;
+  font-size: 3rem;
+  cursor:pointer;
+}
+.btn {
+  cursor:pointer;
+
 }
 
