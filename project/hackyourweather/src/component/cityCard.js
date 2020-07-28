@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Cities({ citiesList, handleDelete }) {
   const searchedList = citiesList.map((city, index) => {
@@ -23,33 +24,35 @@ function City({ city, handleDelete }) {
   );
 }
 
-function Card(props) {
+function Card({handleDelete,name , country , id , weather , description, minTemp , maxTemp , lon , lat}) {
   return (
     <div className="card text-white bg-info mb-5 ">
       <div className="card-header">
-        <h1 className="head">
-          <span>{props.name}, &nbsp;</span>
-          <span>{props.country}</span>
-        </h1>
+        <Link className="linkClass" to={`/${id}`}>
+          <h1 className="head">
+            <span>{name}, &nbsp;</span>
+            <span>{country}</span>
+          </h1>
+        </Link>
         <span>
           <i
             onClick={() => {
-              props.handleDelete(props.id);
+              handleDelete(id);
             }}
             className="delete far fa-times-circle"
           ></i>
         </span>
       </div>
       <div className="card-body">
-        <h3>{props.weather}</h3>
-        <p>{props.description}</p>
+        <h3>{weather}</h3>
+        <p>{description}</p>
       </div>
       <div>
-        <p>min temp : &nbsp;{props.minTemp}</p>
-        <p>max temp : &nbsp;{props.maxTemp}</p>
+        <p>min temp : &nbsp;{minTemp}</p>
+        <p>max temp : &nbsp;{maxTemp}</p>
         <p>
-          Location :<span> &nbsp;{props.lon} &nbsp;,</span>
-          <span> &nbsp;{props.lat}</span>
+          Location :<span> &nbsp;{lon} &nbsp;,</span>
+          <span> &nbsp;{lat}</span>
         </p>
       </div>
     </div>
